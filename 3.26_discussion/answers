@@ -1,0 +1,7 @@
+question1:
+>>> print(divide_by_2(17))
+10001
+>>> print(divide_by_2(45))
+101101
+>>> print(divide_by_2(96))
+1100000
