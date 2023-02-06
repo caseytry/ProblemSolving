@@ -5,3 +5,14 @@ question1:
 101101
 >>> print(divide_by_2(96))
 1100000
+
+
+question3:
+>>> print(infix_to_postfix("( A + B ) * ( C + D ) * ( E + F )"))
+A B + C D + * E F + *
+
+>>> print(infix_to_postfix("A + ( ( B + C ) * ( D + E ) )"))
+A B C + D E + * +
+
+>>> print(infix_to_postfix("A * B * C * D + E + F"))
+A B * C * D * E + F +
