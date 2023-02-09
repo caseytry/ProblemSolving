@@ -12,3 +12,7 @@ class Queue:
     def enqueue(self, item):
         """Add an item to the queue"""
         self._items.insert(0, item)
+    
+    def dequeue(self):
+        """Remove an item from the queue"""
+        return self._items.pop()
