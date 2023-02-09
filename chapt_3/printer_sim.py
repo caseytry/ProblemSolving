@@ -24,7 +24,7 @@ class Printer:
 class Task:
     def __init__(self, time):
         self.timestamp = time
-        self.pages = random.randrange(1, 21)
+        self.pages = random.randrange(1, 11)
 
     def get_stamp(self):
         return self.timestamp
@@ -60,10 +60,10 @@ def simulation(num_seconds,  pages_per_minute):
 
 
 def new_print_task():
-    num = random.randrange(1, 181)
-    return num == 180
+    num = random.randrange(1, 91)
+    return num == 90
 
 
 
 for i in range(10):
-    simulation(3600, 5)
+    simulation(3600, 10)

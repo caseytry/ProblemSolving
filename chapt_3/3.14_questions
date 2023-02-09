@@ -1,0 +1,84 @@
+Q: How would you modify the printer simulation to reflect a larger number of students? 
+Suppose that the number of students was doubled. 
+You make need to make some reasonable assumptions about how this simulation was put together but what would you change? 
+
+A:
+Nothing I'm seeing in the original problem is saying that the number of computers is limited; only the number of tasks to be done.
+With that in mind, I looked at the math used to get to the 1 task every 180 seconds. 
+If we originally had 10 students that typically printed twice, that got us to the math of
+(20 tasks/1 hour) * (1 hour / 60 minutes) * (1 minute / 60 seconds)  = 1 task / 180 seconds
+then doubling the students to 20 would change our tasks  from 20 to 40.
+(40 tasks/1 hour) * (1 hour/ 60 minutes) * (1 minute / 60 seconds) = 1 task / 90 seconds.
+
+Q: Modify the code. 
+
+
+A: 
+I think the changes that would be needed are at the end of the code.
+def new_print_task():
+    num = random.randrange(1, 181)
+    return num == 180
+
+would now become
+
+def new_print_task():
+    num = random.randrange(1, 91)
+    return num == 90
+
+At the 5 pages a minute rate, we hae a LOT of tasks built up.
+
+Average Wait 692.00 secs  7 tasks remaining.
+Average Wait 283.83 secs 16 tasks remaining.
+Average Wait 466.21 secs  4 tasks remaining.
+Average Wait 870.93 secs 16 tasks remaining.
+Average Wait 763.88 secs 13 tasks remaining.
+Average Wait 888.96 secs 25 tasks remaining.
+Average Wait 167.54 secs  7 tasks remaining.
+Average Wait 402.66 secs  9 tasks remaining.
+Average Wait 656.74 secs 17 tasks remaining.
+Average Wait 204.08 secs 11 tasks remaining.
+
+Even when we bump that to 10 pages per minute being printed, it is better, but still high chance of some tasks being queued in the hour.
+Average Wait  50.03 secs  0 tasks remaining.
+Average Wait 131.43 secs  1 tasks remaining.
+Average Wait  46.17 secs  0 tasks remaining.
+Average Wait  61.86 secs  0 tasks remaining.
+Average Wait  70.21 secs  2 tasks remaining.
+Average Wait  43.00 secs  0 tasks remaining.
+Average Wait 115.29 secs  4 tasks remaining.
+Average Wait  78.70 secs  0 tasks remaining.
+Average Wait  22.85 secs  0 tasks remaining.
+Average Wait 222.19 secs  7 tasks remaining.
+
+
+Q: Also suppose that the length of the average print task was cut in half. 
+
+A:
+I am understanding "length" in this case to be the number of pages that a student could print, so we'd drop from 20 down to 10
+
+Q:Change the code to reflect that change. 
+This change would be at the Task class' 'self.pages' definition, changing our range from:
+        self.pages = random.randrange(1, 21)
+
+to:
+         self.pages = random.randrange(1, 11)
+
+Even with double the students, having them only print 10 pages looks much better.
+
+Average Wait   1.46 secs  0 tasks remaining.
+Average Wait  11.52 secs  0 tasks remaining.
+Average Wait  16.97 secs  0 tasks remaining.
+Average Wait  10.09 secs  0 tasks remaining.
+Average Wait   7.84 secs  0 tasks remaining.
+Average Wait  11.71 secs  0 tasks remaining.
+Average Wait  20.71 secs  0 tasks remaining.
+Average Wait   5.05 secs  0 tasks remaining.
+Average Wait  16.85 secs  2 tasks remaining.
+Average Wait   6.00 secs  1 tasks remaining.
+
+
+Q: Finally 
+How would you parametertize the number of students, rather than changing the code we would like to make the number of students a parameter of the simulation.
+
+A: 
+I'm thinking this would be a variable for changing the random range. Since its a task on its own..would it be global variable?
