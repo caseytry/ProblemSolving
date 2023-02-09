@@ -11,3 +11,6 @@ class Printer:
             self.time_remaining = self.time_remaining - 1
             if self.time_remaining <= 0:
                 self.current_task = None
+    
+    def busy(self):
+        return self.current_task is not None
