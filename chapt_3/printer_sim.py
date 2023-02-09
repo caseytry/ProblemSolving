@@ -1,3 +1,4 @@
+import random
 from Queue import Queue
 
 class Printer:
@@ -18,3 +19,7 @@ class Printer:
     def start_next(self, new_task):
         self.current_task = new_task
         self.time_remaining = new_task.get_pages() * 60 / self.page_rate
+
+
+class Task:
+    pass
