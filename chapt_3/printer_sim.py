@@ -34,3 +34,6 @@ class Task:
 
     def wait_time(self, current_time):
         return current_time - self.timestamp
+
+def simulation(num_seconds,  pages_per_minute):
+    pass
