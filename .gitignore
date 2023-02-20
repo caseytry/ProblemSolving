@@ -566,3 +566,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+## Other
+lib64
+pyvenv.cfg
